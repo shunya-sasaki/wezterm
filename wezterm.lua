@@ -102,6 +102,18 @@ config.keys = {
 		mods = "LEADER",
 		action = wezterm.action.PasteFrom("Clipboard"),
 	},
+	{
+		key = ",",
+		mods = "LEADER",
+		action = wezterm.action.PromptInputLine({
+			description = "Rename Tab",
+			action = wezterm.action_callback(function(window, pane, line)
+				if line then
+					window:active_tab():set_title(line)
+				end
+			end),
+		}),
+	},
 }
 for i = 1, 9 do
 	table.insert(config.keys, {
