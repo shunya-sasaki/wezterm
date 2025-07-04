@@ -3,10 +3,19 @@ local act = wezterm.action
 local config = {}
 
 config.color_scheme = "Tokyo Night"
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.9
 
 config.initial_cols = 80
 config.initial_rows = 30
+config.font = wezterm.font_with_fallback({
+	"FiraCode Nerd Font",
+	"IBM Plex Sans JP",
+	"Fira Code",
+	"JetBrains Mono",
+})
+
+config.enable_kitty_graphics = true
+config.enable_kitty_keyboard = true
 
 -- Set the default shell based on the target platform
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
